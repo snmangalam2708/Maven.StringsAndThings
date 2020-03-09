@@ -18,14 +18,13 @@ public class StringsAndThings<count1, count2> {
 
         int i = 0;
         int count = 0;
-        int len = input.length();
 
-            if (input.charAt(len-1) == 'y' || input.charAt(len-1) == 'z') {
+            if (input.charAt(input.length()-1) == 'y' || input.charAt(input.length()-1) == 'z') {
 
                 count++;
             }
 
-            for (i=len-2;i>=0;i--){
+            for (i=input.length()-2;i>=0;i--){
 
                 if (input.charAt(i) == ' ') {
                     if ((input.charAt(i-1) == 'y') || input.charAt(i-1) == 'z') {
@@ -49,9 +48,7 @@ public class StringsAndThings<count1, count2> {
      */
     public String removeString(String base, String remove) {
 
-        String base1 = base.replace(remove, "");
-
-        return base1;
+        return base.replace(remove, "");
     }
 
     /**
@@ -69,7 +66,7 @@ public class StringsAndThings<count1, count2> {
         for (int i = 0; i < input.length(); i++) {
 
             if (i < input.length() - 1) {
-               
+
                 if ((input.substring(i, i + 2)).equals("is"))
                     c1++;
             }
@@ -94,20 +91,13 @@ public class StringsAndThings<count1, count2> {
      */
     public Boolean gIsHappy(String input) {
 
-        int i;
-        //int count = 0;
-        //boolean c;
-       // if (input.length() > 1) {
-            //for (i = 0; i < (input.length() - 2); i++) {
 
-                if ((input.indexOf('g') +1) == input.lastIndexOf('g', input.length() - 1)) {
-                    return true;
-                } else {
-                    return false;
-                }
-           // }
-
-        //}
+        if (((input.indexOf('g') + 1) == input.lastIndexOf('g', input.length() - 1)) ||
+                (((input.indexOf('g') + 1)) == input.lastIndexOf('g', input.lastIndexOf('g', input.length() - 1)-1))) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 
